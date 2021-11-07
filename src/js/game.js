@@ -20,7 +20,18 @@ add([
     outline(4),
     area(),
     solid(),
-    color(127, 200, 255),
+    color(127, 200, 254),
+]);
+
+// add tree
+add([
+    rect(48, 64),
+    area(),
+    outline(4),
+    pos(width(), height() - 48),
+    origin("botleft"),
+    color(255, 180, 255),
+    move(LEFT, 240),
 ]);
 
 // .jump() when "space" key is pressed
