@@ -1,0 +1,21 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "simple game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
+    "serve": "cd dist && node ../node_modules/static-here/bin/static-here 9999 0.0.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.13.12",
+    "recursive-copy": "^2.0.13",
+    "static-here": "^1.0.0"
+  },
+  "dependencies": {
+    "kaboom": "^2000.1.0"
+  }
+}
