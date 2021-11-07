@@ -4,7 +4,7 @@
   "description": "simple game",
   "main": "main.js",
   "watch": {
-    "build": {
+    "build-dev": {
       "patterns": [
         "src/js"
       ],
@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.js",
-    "dev": "node build.js --target=debug",
+    "build-dev": "node build.js --target=debug",
     "watch": "npm-watch",
     "serve": "cd dist && node ../node_modules/static-here/bin/static-here 9999 0.0.0.0"
   },
