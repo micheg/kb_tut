@@ -14,6 +14,7 @@ const options = commandLineArgs(optionDefinitions);
 const base_dir = __dirname;
 const src_dir = `${base_dir}/src`;
 const js_dir = `${src_dir}/js`;
+const css_dir = `${src_dir}/css`;
 const img_dir = `${src_dir}/img/`;
 const out_dir = `${base_dir}/dist`;
 
@@ -30,6 +31,13 @@ if(minify === null)
     console.log('wrong argument target');
     process.exit(-1);
 }
+
+require('esbuild').buildSync({
+    entryPoints: [`${css_dir}/main.css`],
+    bundle: true,
+    minify: minify,
+    outfile: `${out_dir}/out.css`
+  })
 
 require('esbuild').buildSync(
 {

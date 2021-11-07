@@ -1,6 +1,7 @@
 import kaboom from "kaboom";
 
 window.$DEBUG;
+window.main = null;
 
 ;((self) => 
 {
@@ -63,6 +64,14 @@ window.$DEBUG;
                 dino.jump(650);
             }
         });
+
+        k.onTouchStart((id, pos) =>
+        {
+            if(dino.isGrounded())
+            {
+                dino.jump(650);
+            }
+        });
     
         dino.onCollide("tree", () => {
             k.addKaboom(dino.pos);
@@ -86,14 +95,12 @@ window.$DEBUG;
     // entry point
     let main = (game) =>
     {
-        const k = kaboom({ global: false });
+        const k = kaboom(
+        {
+            global: false,
+        });
         game.init(k);
     };
-    // debug
-    window.$DEBUG =
-    {
-        g: G
-    };
-    
+
     main(G);
 })();
