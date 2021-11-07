@@ -1,6 +1,14 @@
+// defaults
+const optionDefinitions = [
+    { name: 'target', type: String, multiple: false, defaultValue: 'release' },
+  ]
+
 // Import the filesystem module
 const copy = require('recursive-copy');
 const fs = require('fs');
+const commandLineArgs = require('command-line-args');
+
+const options = commandLineArgs(optionDefinitions);
 
 // define dirs
 const base_dir = __dirname;
@@ -15,11 +23,19 @@ fs.mkdirSync(out_dir);
 
 console.log(base_dir);
 
+let minify = options.target === 'release' ? true : options.target === 'debug' ? false : null;
+
+if(minify === null)
+{
+    console.log('wrong argument target');
+    process.exit(-1);
+}
+
 require('esbuild').buildSync(
 {
     entryPoints: [`${js_dir}/game.js`],
     bundle: true,
-    minify: true,
+    minify: minify,
     sourcemap: false,
     outfile: `${out_dir}/out.js`
 });

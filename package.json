@@ -14,12 +14,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.js",
+    "dev": "node build.js --target=debug",
     "watch": "npm-watch",
     "serve": "cd dist && node ../node_modules/static-here/bin/static-here 9999 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "command-line-args": "^5.2.0",
     "esbuild": "^0.13.12",
     "npm-watch": "^0.11.0",
     "recursive-copy": "^2.0.13",
